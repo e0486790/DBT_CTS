@@ -49,10 +49,5 @@ models:
   +post-hook:
     - "update {{env_var('DBT_AUDITSCHEMA','AUDITING_DEV')}}.qwt_models_auditinfo set endtime = current_timestamp(), duration = datediff('second', starttime, current_timestamp()) where modelname= '{{this}}' and endtime is null;"
     
-  DBT_CTS:
-    +materialized: table
-
-  dq_tools:
-   
-    +schema: "{{env_var('DBT_AUDITSCHEMA','AUDITING_DEV')}}"
-    
+  
+  
